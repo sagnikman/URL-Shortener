@@ -56,7 +56,7 @@ app.post('/url', slowDown({
       slug,
       url,
     });
-    if (url.includes('skml.me')) {
+    if (url.includes('skml.herokuapp.com')) {
       throw new Error('Stop it. 🛑');
     }
     if (!slug) {
