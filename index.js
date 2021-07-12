@@ -57,14 +57,14 @@ app.post('/url', slowDown({
       url,
     });
     if (url.includes('skml.herokuapp.com')) {
-      throw new Error('Stop it. 🛑');
+      throw new Error('Stop it.');
     }
     if (!slug) {
       slug = nanoid(5);
     } else {
       const existing = await urls.findOne({ slug });
       if (existing) {
-        throw new Error('Slug in use. 🍔');
+        throw new Error('Slug in use.');
       }
     }
     slug = slug.toLowerCase();
@@ -91,7 +91,7 @@ app.use((error, req, res, next) => {
   }
   res.json({
     message: error.message,
-    stack: process.env.NODE_ENV === 'production' ? '🥞' : error.stack,
+    stack: process.env.NODE_ENV === 'production' ? 'p' : error.stack,
   });
 });
 
