@@ -64,7 +64,7 @@ app.post('/url', slowDown({
     } else {
       const existing = await urls.findOne({ slug });
       if (existing) {
-        throw new Error('Slug in use.');
+        throw new Error('Short Code already in use.');
       }
     }
     slug = slug.toLowerCase();
